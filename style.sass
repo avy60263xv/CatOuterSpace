@@ -1,0 +1,47 @@
+
+@function starsShadowBox($n)
+  $value: '#{random(2000)}px #{random(2000)}px #FFF' //x,y軸位置
+  @for $i from 2 to $n
+    $value: '#{$value}, #{random(2000)}px #{random(2000)}px #FFF' // 加回 function/* offset-x | offset-y  | color */
+  
+  @return unquote($value)
+
+$stars1Small: starsShadowBox(700)
+$stars2Mid: starsShadowBox(300)
+$stars3Big: starsShadowBox(100)
+
+html
+  height: 100%
+  background: linear-gradient(180deg, #373839, #131432) //background:linear-gradient(方向, 顏色1 位置, 顏色2 位置)
+  overflow: 
+
+#stars1
+  width: 1px
+  height: 1px
+  background: transparent
+  box-shadow: $stars1Small
+  animation: animationStars 50s linear infinite //animation:name duration | timing-function | delay | iteration-count | direction | fill-mode | play-state;
+
+#stars2
+  width: 2px
+  height: 2px
+  background: transparent
+  box-shadow: $stars2Mid
+  animation: animationStars 55s linear infinite
+
+#stars3
+  width: 3px
+  height: 3px
+  background: transparent
+  box-shadow: $stars3Big
+  animation: animationStars 60s linear infinite
+
+@keyframes animationStars
+  form
+    transform: translateY(0px)
+  to
+    transform: translateY(-2000px)
+
+#title
+  font-size: 50px
+  color: #D3CA63

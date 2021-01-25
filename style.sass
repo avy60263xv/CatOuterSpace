@@ -10,31 +10,60 @@ $stars1Small: starsShadowBox(700)
 $stars2Mid: starsShadowBox(300)
 $stars3Big: starsShadowBox(100)
 
+@mixin size($width, $height)
+  width: $width
+  height: $height
+
+*
+  border: solid red 1px
+  position: relative
+
 html
   height: 100%
   background: linear-gradient(180deg, #373839, #131432) //background:linear-gradient(方向, 顏色1 位置, 顏色2 位置)
-  overflow: 
+  overflow: hidden
 
 #stars1
-  width: 1px
-  height: 1px
+  +size(1px,1px)
   background: transparent
   box-shadow: $stars1Small
   animation: animationStars 50s linear infinite //animation:name duration | timing-function | delay | iteration-count | direction | fill-mode | play-state;
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: 1px
+    height: 1px
+    background: transparent
+    box-shadow: $stars1Small
 
 #stars2
-  width: 2px
-  height: 2px
+  +size(2px,2px)
   background: transparent
   box-shadow: $stars2Mid
   animation: animationStars 55s linear infinite
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: 2px
+    height: 2px
+    background: transparent
+    box-shadow: $stars2Mid
 
 #stars3
-  width: 3px
-  height: 3px
+  +size(3px,3px)
   background: transparent
   box-shadow: $stars3Big
   animation: animationStars 60s linear infinite
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: 3px
+    height: 3px
+    background: transparent
+    box-shadow: $stars3Big
 
 @keyframes animationStars
   form
@@ -45,3 +74,23 @@ html
 #title
   font-size: 50px
   color: #D3CA63
+
+.StarButtons
+  li
+    display: inline
+    border: solid 1px #D3CA63
+    font-size: 25px
+
+//外星貓
+#cat_astronaut
+  +size(130px,auto)
+  position: absolute
+  animation: animationCat 3s linear infinite alternate
+  transition-duration: 4s
+  transition-timing-function: ease-out
+
+@keyframes animationCat
+  form
+    transform: rotate(45deg)
+  to
+    transform: rotate(-45deg)

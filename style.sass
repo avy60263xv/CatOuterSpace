@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC')
 @function starsShadowBox($n)
   $value: '#{random(2000)}px #{random(2000)}px #FFF' //x,y軸位置
   @for $i from 2 to $n
@@ -19,7 +20,7 @@ $starsBig: starsShadowBox(100)
 
 html
   height: 100%
-  background: linear-gradient(180deg, #373839, #131432) //background:linear-gradient(方向, 顏色1 位置, 顏色2 位置)
+  background: linear-gradient(360deg, rgb(198,111,134), rgb(129,88,134), rgb(54,47,81),rgb(14,15,35)) //background:linear-gradient(方向, 顏色1 位置, 顏色2 位置)
   overflow: hidden
 
 #stars1
@@ -71,36 +72,45 @@ html
     transform: translateY(-2000px)
 
 #title
-  font-size: 50px
+  font-size: 75px
   color: #D3CA63
-
+  letter-spacing: 10px
+  top: 50px
+  left: 50px
 
 //starButtons
 .StarButtons
-  left: 100px
-  top: 100px
+  left: 50px
+  top: 75px
+  color: white
+  font-family: 'Noto Sans TC', sans-serif
   li
     display: inline-block
     //border: solid 1px #D3CA63
     border-radius: 50%
-    font-size: 25px
+    font-size: 18px
     text-align: center
+    //background: linear-gradient(290deg, rgba(205, 196, 99, 1), rgba(35, 35, 35, 0.1))
+    background: transparent
     line-height: 75px
     margin: 20px
     +size(75px, 75px)
   li:hover
-    background: #D3CA63
+    box-shadow: 0 2px 25px rgb(211, 202, 99)
+    //background: transparent
+    background: linear-gradient(290deg, rgba(205, 196, 99, 1), rgba(35, 35, 35, 0.1))
   
 .starcircle
-  +size(10px,2px)
+  +size(20px,5px)
   position: absolute
-  top: -15px
+  top: -8px
   left: 37px
-  border-radius: 50％
+  border-radius: 50px
   background: transparent
-  box-shadow: 5px 5px #D3CA63
+  background: linear-gradient(rgba(205, 196, 99, 1), rgba(255, 255, 255, 0.5))
+  box-shadow: 0 2px 20px rgb(211, 202, 99)
   animation: starBtnSpin 0.7s linear infinite
-  transform-origin: 0px 50px //原點 半徑範圍
+  transform-origin: 0px 45px //原點 半徑範圍
 
 @keyframes starBtnSpin
   to 

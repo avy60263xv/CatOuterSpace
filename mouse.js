@@ -8,7 +8,7 @@ let mouse = {
     y:0
 }
 window.addEventListener('mousemove', function(e){
-    console.log(`${e.pageX},${e.pageY}`);
+   // console.log(`${e.pageX},${e.pageY}`);
     mouse.x = e.pageX;
     mouse.y = e.pageY;
     cat.style.left = mouse.x + "px"; //cat 左右移

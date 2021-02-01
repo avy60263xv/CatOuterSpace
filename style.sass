@@ -87,6 +87,7 @@ html
   li
     display: inline-block
     //border: solid 1px #D3CA63
+    z-index: 100
     border-radius: 50%
     font-size: 18px
     text-align: center
@@ -96,6 +97,7 @@ html
     margin: 20px
     +size(75px, 75px)
   li:hover
+    cursor: pointer
     //box-shadow: 0 2px 25px rgb(211, 202, 99)
     //background: transparent
     //background: linear-gradient(290deg, rgba(205, 196, 99, 1), rgba(35, 35, 35, 0.1))
@@ -117,6 +119,7 @@ html
 //外星貓
 #cat_astronaut
   +size(130px,auto)
+  z-index: 99
   position: absolute
   animation: animationCat 2s linear infinite alternate //控制貓咪本體旋轉
   transition-duration: 2s //控制貓咪跟隨滑鼠移動時間
@@ -130,7 +133,7 @@ html
 
 //intro
 #planet_intro
-  +size(600px,300px)
+  +size(600px,auto)
   font-family: 'Noto Sans TC', sans-serif
   font-size: 14px
   line-height: 25px
@@ -141,3 +144,12 @@ html
   left: 75px
 
 //planet img
+#planet_img
+  animation: animationPlanet 100s linear infinite //控制貓咪本體旋轉
+  position: absolute
+  left: 10%
+  top: 130%
+
+@keyframes animationPlanet
+  to
+    transform: rotate(1turn)

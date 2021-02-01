@@ -47,7 +47,14 @@ function addBtns(obj){
         li[j].addEventListener("mouseleave", function(e){
             li[j].style.background = "transparent";
         });
+        li[j].addEventListener("click", function(e){
+            const planetIntro = document.getElementById("planet_intro");    
+            const planetImg = document.getElementById("planet_img");           
+            planetIntro.innerHTML = `${obj[j].intro}`;
+            console.log(planetIntro);
+            planetImg.src = `img/${obj[j].plantImg}`
+        });
     }
-
-
 }
+
+

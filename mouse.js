@@ -28,15 +28,33 @@ request.onload = function() {
     addBtns(planet);
 }
 
+/*function addImg(obj){
+    //圖片都先載入 但透明度設定0隱藏
+    const starSection = document.getElementById("starSection");   
+    for(let i=0;i<=7;i++){
+        starSection.innerHTML += `<img class="hide" src="img/${obj[i].plantImg}">`
+    }
+}*/
+
 function addBtns(obj){
+    //加按鈕跟圖片
     var ul = document.getElementById("StarButtons");
+    const starSection = document.getElementById("starSection");  
+    
     for(let i=0;i<=7;i++){
         ul.innerHTML += `<li label=${[i]}><div class="starcircle"></div>${obj[i].nameCh}</li>`;
         const li = ul.getElementsByTagName("li");
+        const starimg = document.createElement('img');
+        starimg.src = 'img/'+obj[i].plantImg;
+        starimg.id = 'planet_img'+i;
+        starimg.className = 'hide';
+        starSection.append(starimg);
     }
+
 //Btn 星球按鈕個人化
     const li = ul.getElementsByTagName("li");
     const starcircle = ul.getElementsByClassName("starcircle");
+    const count = [];
     for(let j=0; j<=7;j++){
         li[j].style.boxShadow = `0 2px 25px ${obj[j].color}`;
         starcircle[j].style.background = `linear-gradient(${obj[j].color}, rgba(255, 255, 255, 0.5))`
@@ -47,12 +65,27 @@ function addBtns(obj){
         li[j].addEventListener("mouseleave", function(e){
             li[j].style.background = "transparent";
         });
+//Btn按下        
         li[j].addEventListener("click", function(e){
-            const planetIntro = document.getElementById("planet_intro");    
-            const planetImg = document.getElementById("planet_img");           
+            const planetIntro = document.getElementById("planet_intro");         
             planetIntro.innerHTML = `${obj[j].intro}`;
-            console.log(planetIntro);
-            planetImg.src = `img/${obj[j].plantImg}`
+            count.push(j); //存現在哪個被點
+            console.log(count);
+            console.log(count[count.length-2]);
+            //圖片哪一張要顯示
+            const starimg = document.getElementById("planet_img"+j); //現在被點的
+            const starimgBefore = document.getElementById("planet_img"+ count[count.length-2]); //上次被點的
+            starimg.className = 'show planet_rotate';
+            if(starimg == count[length] && starimg.className == 'show'){
+                starimg.className = 'show planet_rotate';
+            }else if(starimg != count[length]){
+                starimgBefore.className = 'hide';
+                starimg.className = 'show planet_rotate';
+            }
+
+            console.log(starimg);
+            //console.log(planetIntro);
+            //planetImg.src = `img/${obj[j].plantImg}`
         });
     }
 }

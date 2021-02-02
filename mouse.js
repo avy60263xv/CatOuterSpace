@@ -75,6 +75,7 @@ function addBtns(obj){
             //圖片哪一張要顯示
             const starimg = document.getElementById("planet_img"+j); //現在被點的
             const starimgBefore = document.getElementById("planet_img"+ count[count.length-2]); //上次被點的
+
             starimg.className = 'show planet_rotate';
             if(starimg == count[length] && starimg.className == 'show'){
                 starimg.className = 'show planet_rotate';

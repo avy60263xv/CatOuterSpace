@@ -17,6 +17,7 @@ $starsBig: starsShadowBox(100)
 *
   //border: solid red 1px
   position: relative
+  
 
 html
   height: 100%
@@ -103,19 +104,21 @@ html
     //background: linear-gradient(290deg, rgba(205, 196, 99, 1), rgba(35, 35, 35, 0.1))
   
 .starcircle
-  +size(20px,5px)
+  +size(10px,5px)
   position: absolute
   top: -8px
   left: 37px
   border-radius: 50px
   background: transparent
-  animation: starBtnSpin 0.7s linear infinite
+  animation: starBtnSpin 1s linear infinite
   transform-origin: 0px 45px //原點 半徑範圍
 
 @keyframes starBtnSpin
   to 
     transform: rotate(1turn)
 
+#planet_intro
+  z-index: 98
 //外星貓
 #cat_astronaut
   +size(130px,auto)
@@ -126,7 +129,7 @@ html
   transition-timing-function: ease-out
 
 @keyframes animationCat
-  form
+  from
     transform: rotate(45deg)
   to
     transform: rotate(-45deg)
@@ -145,26 +148,23 @@ html
 
 //planet img
 .planet_rotate
-  animation: animationPlanet 100s linear infinite //控制貓咪本體旋轉
+  animation: animationPlanet 100s linear infinite, show 1s linear forwards//控制星球本體旋轉
   position: absolute
   left: 10%
-  top: 130%
+  top: 90%
 
 .hide
   opacity: 0
   display: none
-  
-.show
-  opacity: 1
-  display: block
+  //animation: show 1s linear reverse
 
-//@keyframes hide
-  //form
-   // opacity: 0
-   // display: none
-  //to
-  //  opacity: 1
-  //  display: block
+@keyframes show
+  from
+    opacity: 0
+    display: none
+  to
+    opacity: 1
+    display: block
 
 @keyframes animationPlanet
   to

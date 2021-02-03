@@ -61,15 +61,27 @@ function addBtns(obj){
         starcircle[j].style.boxShadow = `0 2px 20px ${obj[j].color}`
         li[j].addEventListener("mouseenter", function(e){
             li[j].style.background = `linear-gradient(290deg,${obj[j].color}, rgba(35, 35, 35, 0.1))`;
+            li[j].textContent = `${obj[j].nameEn}`;
         });
         li[j].addEventListener("mouseleave", function(e){
             li[j].style.background = "transparent";
+            li[j].textContent = `${obj[j].nameCh}`;
         });
 //Btn按下        
         li[j].addEventListener("click", function(e){
+           //要跑哪一筆介紹跟圖片
             const planetIntro = document.getElementById("planet_intro");         
             planetIntro.innerHTML = `${obj[j].intro}`;
-            count.push(j); //存現在哪個被點
+
+            //要跑該行星與太陽的距離
+            const distance = document.getElementById("distance");
+            distance.innerHTML = `${obj[j].distanceFromSun} 天文單位  (${obj[j].distanceFromSun*149597871}公里)`;
+            const distanceBar = document.getElementById("distanceBar");
+            distanceBar.style.width = (obj[j].distanceFromSun*10) + 'px';
+            distanceBar.style.background = (obj[j].color);
+            littlePlanet.src = `img/${obj[j].plantImg}`;
+
+            count.push(j); //用迴圈存現在哪個被點
             console.log(count);
             console.log(count[count.length-2]);
             //圖片哪一張要顯示

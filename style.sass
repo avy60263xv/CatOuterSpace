@@ -128,6 +128,7 @@ html
   transition-duration: 2s //控制貓咪跟隨滑鼠移動時間
   transition-timing-function: ease-out
 
+
 @keyframes animationCat
   from
     transform: rotate(45deg)
@@ -169,3 +170,38 @@ html
 @keyframes animationPlanet
   to
     transform: rotate(1turn)
+
+#distanceFuc
+  +size(auto, 50px)
+  position: relative
+  font-size: 14px
+  font-family: 'Noto Sans TC', sans-serif
+  color: #ffffff
+  top: -20px
+  left: 1000px
+
+#distanceBar
+  +size(0px, 20px)
+  opacity: 0.5
+  display: inline-block
+  position: relative
+  top: 15px
+  left: 5px
+  border-radius: 10px
+  transition: width 1s
+
+#littlePlanet
+  +size(auto, 30px)
+  position: relative
+  top: 20px
+  left: 15px
+
+#sunImg
+  +size(30px,auto)
+  position: relative
+  top: 20px
+  animation: animationPlanet 2s linear infinite, show 1s linear forwards
+
+#distance
+  position: relative
+  top: 30px

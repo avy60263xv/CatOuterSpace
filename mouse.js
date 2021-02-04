@@ -56,6 +56,7 @@ function addBtns(obj){
     const starcirclediv = document.createElement("div");
     const div = document.createElement("div");
     const count = [];
+    let k = 0; //紀錄被點幾次
     for(let j=0; j<=7;j++){
         li[j].style.boxShadow = `0 2px 25px ${obj[j].color}`;
         li[j].addEventListener("mouseenter", function(){
@@ -85,21 +86,29 @@ function addBtns(obj){
             littlePlanet.src = `img/${obj[j].plantImg}`;
 
             count.push(j); //用迴圈存現在哪個被點
-            console.log(count);
-            console.log(count[count.length-2]);
+            //console.log(count[count.length-2]);
             //圖片哪一張要顯示
-            const starimg = document.getElementById("planet_img"+j); //現在被點的
-            const starimgBefore = document.getElementById("planet_img"+ count[count.length-2]); //上次被點的
-
-            starimg.className = 'show planet_rotate';
-            if(starimg == count[length] && starimg.className == 'show'){
-                starimg.className = 'show planet_rotate';
-            }else if(starimg != count[length]){
-                starimgBefore.className = 'hide';
-                starimg.className = 'show planet_rotate';
+             
+            k++; //按鈕被點就+1
+            const planetImg = document.getElementById("planet_img"+j); //現在被點的
+            const planetImgBefore = document.getElementById("planet_img"+ count[k-2]); //上次被點的
+            
+            if(k>1 && planetImgBefore != planetImg){ //當現在按的與前一個不同時，前一個隱藏，現在的show
+                planetImgBefore.className='hide';
+                planetImg.className='show planet_rotate';
+            }else{ //第一筆不管按什麼 都show
+                planetImg.className='show planet_rotate';
             }
+            
 
-            console.log(starimg);
+            /*starimg.className = 'show planet_rotate';
+            if(planet_img == count[length] && starimg.className == 'show'){
+                starimg.className = 'show planet_rotate';
+            }else if(k > 1 && planet_imgimg.className == 'hide' ){
+                planet_img.className = 'show planet_rotate';
+                planet_imgBefore.className = 'hide';
+            }*/
+            //const starimgBefore; = document.getElementById("planet_img"+ count[count.length-2]);
             //console.log(planetIntro);
             //planetImg.src = `img/${obj[j].plantImg}`
         });

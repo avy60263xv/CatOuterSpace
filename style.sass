@@ -23,6 +23,7 @@ html
   height: 100%
   background: linear-gradient(360deg, rgb(198,111,134), rgb(129,88,134), rgb(54,47,81),rgb(14,15,35)) //background:linear-gradient(方向, 顏色1 位置, 顏色2 位置)
   overflow: hidden
+  font-family: 'Noto Sans TC', sans-serif
 
 #stars1
   +size(1px,1px)
@@ -76,6 +77,7 @@ html
   font-size: 75px
   color: #D3CA63
   letter-spacing: 10px
+  line-height: 90px
   top: 50px
   left: 50px
 
@@ -84,7 +86,6 @@ html
   left: 50px
   top: 75px
   color: white
-  font-family: 'Noto Sans TC', sans-serif
   li
     display: inline-block
     //border: solid 1px #D3CA63
@@ -112,6 +113,8 @@ html
   background: transparent
   animation: starBtnSpin 1s linear infinite
   transform-origin: 0px 45px //原點 半徑範圍
+  background: linear-gradient(#FFF, rgba(255, 255, 255, 0.5))
+  box-shadow: 0 2px 20px #FFF
 
 @keyframes starBtnSpin
   to 
@@ -138,7 +141,6 @@ html
 //intro
 #planet_intro
   +size(600px,auto)
-  font-family: 'Noto Sans TC', sans-serif
   font-size: 14px
   line-height: 25px
   color: #fff
@@ -175,7 +177,6 @@ html
   +size(auto, 50px)
   position: relative
   font-size: 14px
-  font-family: 'Noto Sans TC', sans-serif
   color: #ffffff
   top: -20px
   left: 1000px

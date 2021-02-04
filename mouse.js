@@ -42,7 +42,7 @@ function addBtns(obj){
     const starSection = document.getElementById("starSection");  
     
     for(let i=0;i<=7;i++){
-        ul.innerHTML += `<li label=${[i]}><div class="starcircle"></div>${obj[i].nameCh}</li>`;
+        ul.innerHTML += `<li label=${[i]}>${obj[i].nameCh}</li>`;
         const li = ul.getElementsByTagName("li");
         const starimg = document.createElement('img');
         starimg.src = 'img/'+obj[i].plantImg;
@@ -53,17 +53,20 @@ function addBtns(obj){
 
 //Btn 星球按鈕個人化
     const li = ul.getElementsByTagName("li");
-    const starcircle = ul.getElementsByClassName("starcircle");
+    const starcirclediv = document.createElement("div");
+    const div = document.createElement("div");
     const count = [];
     for(let j=0; j<=7;j++){
         li[j].style.boxShadow = `0 2px 25px ${obj[j].color}`;
-        starcircle[j].style.background = `linear-gradient(${obj[j].color}, rgba(255, 255, 255, 0.5))`
-        starcircle[j].style.boxShadow = `0 2px 20px ${obj[j].color}`
-        li[j].addEventListener("mouseenter", function(e){
+        li[j].addEventListener("mouseenter", function(){
             li[j].style.background = `linear-gradient(290deg,${obj[j].color}, rgba(35, 35, 35, 0.1))`;
             li[j].textContent = `${obj[j].nameEn}`;
+            li[j].append(div);
+            div.className = 'starcircle';
+            div.style.background = `linear-gradient(${obj[j].color}, rgba(255, 255, 255, 0.5))`;
+            div.style.boxShadow = `0 2px 20px ${obj[j].color}`;
         });
-        li[j].addEventListener("mouseleave", function(e){
+        li[j].addEventListener("mouseleave", function(){
             li[j].style.background = "transparent";
             li[j].textContent = `${obj[j].nameCh}`;
         });
